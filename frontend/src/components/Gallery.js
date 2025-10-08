@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
-import * as api from './api/api';
-import Modal from './Modal';
+import * as api from '../api/api';
+import Modal from './Model';
 
 export default function Gallery() {
 
@@ -22,15 +22,15 @@ export default function Gallery() {
       setImage(null);
     };
 
-    const showNext = (event) => {
-      event.stopPropagation();
+    const showNext = (e) => {
+      e.stopPropagation();
       const nextIndex = (currIndex + 1)% data.length;
       setImage(data[nextIndex]);
       setCurrIndex(nextIndex);
     };
 
-    const showPrev = (event) => {
-      event.stopPropagation();
+    const showPrev = (e) => {
+      e.stopPropagation();
       const prevIndex = (currIndex - 1 + data.length)% data.length;
       setImage(data[prevIndex]);
       setCurrIndex(prevIndex);

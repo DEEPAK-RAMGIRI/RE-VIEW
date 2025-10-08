@@ -1,0 +1,116 @@
+/* --- Global Styles --- */
+:root {
+  --glow-color-1: hsl(280, 90%, 50%); /* Vibrant Purple */
+  --glow-color-2: hsl(200, 100%, 50%); /* Bright Cyan */
+  --glow-color-3: hsl(320, 100%, 50%); /* Hot Pink */
+  --bg-dark: #0D0D0D;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: #e0e0e0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+@keyframes rotateColors {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* --- 1. Gallery Background Style --- */
+/* These styles will ONLY apply when the .app-gallery class is present */
+
+.app-gallery {
+  padding: 3px;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+}
+
+.app-gallery::before {
+  content: '';
+  position: absolute;
+  inset: 3px; /* A modern way to write top, right, bottom, left */
+  background: var(--bg-dark);
+  z-index: -1;
+}
+
+.app-gallery::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  z-index: -2;
+  background: 
+    radial-gradient(circle at 20% 20%, var(--glow-color-1), transparent 40%),
+    radial-gradient(circle at 80% 30%, var(--glow-color-2), transparent 40%),
+    radial-gradient(circle at 50% 80%, var(--glow-color-3), transparent 40%);
+  filter: blur(150px);
+  animation: rotateColors 25s cubic-bezier(0.8, 0.2, 0.2, 0.8) alternate infinite;
+}
+
+
+/* --- 2. Admin Background Style --- */
+/* These styles will ONLY apply when the .app-admin class is present */
+
+.app-admin {
+  background: linear-gradient(to bottom right, #2c3e50, #1d2b3a);
+}
+
+
+/* --- 3. Shared Component Styles (Glassmorphism) --- */
+/* These styles will look good on BOTH backgrounds */
+
+.app-header,
+.modal-content,
+.admin-form,
+.manage-screenshots {
+  background: rgba(24, 24, 24, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ... (the rest of your CSS for gallery-grid, modal, forms, etc. remains the same) ... */
+
+/* --- Gallery & Modal Styles --- */
+.app-header { text-align: center; padding: 2rem 1rem; margin: 1rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; padding: 1rem; }
+.gallery-item { cursor: pointer; overflow: hidden; border-radius: 8px; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
+.gallery-item:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 100; }
+.modal-content { max-width: 80vw; max-height: 90vh; padding: 20px; display: flex; flex-direction: column; }
+.modal-content img { max-width: 100%; max-height: 65vh; object-fit: contain; border-radius: 5px; }
+.modal-info { margin-top: 15px; }
+.nav-button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.4); color: white; border: 1px solid rgba(255, 255, 255, 0.2); font-size: 2.5rem; padding: 0 1rem; cursor: pointer; height: 100px; border-radius: 5px; z-index: 101; transition: background-color 0.2s; }
+.nav-button:hover { background: rgba(0, 0, 0, 0.7); }
+.nav-button.prev { left: 10px; }
+.nav-button.next { right: 10px; }
+
+/* --- Admin Page Styles --- */
+.admin-page-container { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; min-height: 100vh; padding: 2rem; }
+.admin-form, .manage-screenshots { padding: 2rem; width: 100%; max-width: 600px; }
+.admin-form h2, .manage-screenshots h2 { text-align: center; margin-top: 0; }
+.admin-form input, .admin-form textarea, .admin-form select, .admin-form button { width: 100%; padding: 12px; margin-bottom: 1rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); background-color: rgba(40, 40, 40, 0.8); color: #fff; font-size: 1rem; }
+.admin-form button { background-color: var(--glow-color-2); border: none; cursor: pointer; font-weight: bold; transition: background-color 0.3s; }
+.admin-form button:hover { background-color: hsl(200, 100%, 60%); }
+.form-message { text-align: center; margin-top: 1rem; font-weight: bold; }
+.manage-screenshots { max-width: 800px; }
+.screenshots-list { max-height: 400px; overflow-y: auto; }
+.screenshot-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.screenshot-item:last-child { border-bottom: none; }
+.screenshot-item img { border-radius: 4px; margin-right: 15px; }
+.delete-btn { background-color: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+.delete-btn:hover { background-color: #c82333; }
