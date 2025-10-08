@@ -46,10 +46,10 @@ export default function AdminPage() {
   return (
     <div className="admin-page-container">
       <div className="admin-form">
-        <h2> New Collection 🥳</h2>
-        <form onSubmit = {onSubmit}>
+        <h2> New Collection 🥳</h2>      <form onSubmit = {onSubmit}>
             <input type="text" placeholder="Title" name="title" value={forms.title} onChange={onChange} required />
-            <input type="text" placeholder="Image URL" name="imageUrl" value={forms.imageURL} onChange={onChange} required />
+            <input type="text" placeholder="https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/FILENAME.png
+" name="imageURL" value={forms.imageURL} onChange={onChange} required />
             <textarea placeholder="Description" name="description" value={forms.description} onChange={onChange}></textarea>
             <input type="number" placeholder="Rating (1-10)" name="rating" value={forms.rating} min="1" max="10" onChange={onChange} required />
             <select name="category" value={forms.category} onChange={onChange}>
@@ -67,7 +67,7 @@ export default function AdminPage() {
         <div className="screenshots-list">
           {data.map(shot => (
             <div key={shot._id} className="screenshot-item">
-              <img src={shot.imageUrl} alt={shot.title} width="100" />
+              <img src={shot.imageURL} alt={shot.title} width="100" />
               <span>{shot.title}</span>
               <button onClick={() => handleDelete(shot._id)} className="delete-btn">Delete</button>
             </div>

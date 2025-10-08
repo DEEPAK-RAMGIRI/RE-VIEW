@@ -23,9 +23,9 @@ function AppContent() {
       <Routes>
         <Route path="/" element={
           <>
-            <header className="app-header">
+            {/* <header className="app-header">
               <h1>My Collections</h1>
-            </header>
+            </header> */}
             <main><Gallery /></main>
           </>
         } />

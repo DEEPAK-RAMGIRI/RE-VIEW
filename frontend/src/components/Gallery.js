@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from "react";
 import * as api from '../api/api';
-import Modal from './Model';
+import Model from './Model';
 
 export default function Gallery() {
 
     const [data,setData] =  useState([]);
-    const [image,setImage] = useState(null);
+    const [selimage,setImage] = useState(null);
     const [currIndex, setCurrIndex] = useState(null);
 
     useEffect(()=> { const fetchData =  async () => {
@@ -41,15 +41,16 @@ export default function Gallery() {
       <div className="gallery-grid">
         {data.map((shot, index) => (
           <div key={shot._id} className="gallery-item" onClick={() => handleSelect(shot, index)}>
-            <img src={shot.imageUrl} alt={shot.title} />
+            <img src={shot.imageURL} alt={shot.title} />
+            <p >⭐{shot.rating}, {shot.title}</p>
           </div>
         ))}
       </div>
 
-      {image && (
-        <Modal 
-          selectedImg={image}
-          closeModal={close}
+      {selimage && (
+        <Model 
+          selimage={selimage}
+          closeModel={close}
           showNext={showNext}
           showPrev ={showPrev}
         />
