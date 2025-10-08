@@ -4,7 +4,7 @@ const ScreenshotSchema = new mongoose.Schema({
     description :{type:String},
     rating:{type:Number,min: 1, max: 10, required : true},
     imageURL:{type:String,required : true},
-    category:{type:String, enum:['Anime','Series','Movie'],required : true},
+    category:{type:String, enum:['Anime','Series','Movie','Manga','Manhwa','Dialogue'],required : true},
     createdAt: {type: Date,default: Date.now}
 });
 
