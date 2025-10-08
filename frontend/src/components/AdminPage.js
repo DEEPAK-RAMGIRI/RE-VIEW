@@ -59,6 +59,7 @@ export default function AdminPage() {
             </select>
             <input type="password" placeholder="Your Secret Admin Key" value={key} onChange={e => setKey(e.target.value)} required />
             <button type="submit">Add to Collections</button>
+            https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/
         </form>
         {mess && <p className="form-message">{mess}</p>}
       </div>

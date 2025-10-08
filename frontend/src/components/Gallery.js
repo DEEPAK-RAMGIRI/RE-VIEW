@@ -7,11 +7,28 @@ export default function Gallery() {
     const [data,setData] =  useState([]);
     const [selimage,setImage] = useState(null);
     const [currIndex, setCurrIndex] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
+     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(()=> { const fetchData =  async () => {
-      const getResponse = await api.getData();
+      try{
+        const getResponse = await api.getData();
       setData(getResponse.data);
+      }catch(err){
+        console.error(err.message);
+      }
     };  fetchData()},[]);
+
+     useEffect(() => {
+       const results = data.filter(shot => {
+        const titleMatch = shot.title.toLowerCase().includes(searchTerm.toLowerCase());
+        const descriptionMatch = shot.description.toLowerCase().includes(searchTerm.toLowerCase());
+        const ratingMatch = String(shot.rating) === searchTerm.trim();
+
+        return titleMatch || descriptionMatch || ratingMatch;
+    });
+        setFilteredData(results);
+    }, [searchTerm, data]);
 
     const handleSelect = (data ,  index) => {
       setImage(data);
@@ -38,14 +55,26 @@ export default function Gallery() {
 
     return (
      <div>
+       <div className="search-container">
+                <input
+                    type="search"
+                    placeholder="Search by title or description..."
+                    className="search-input"
+                    value={searchTerm}
+                    onChange={e => setSearchTerm(e.target.value)}
+                />
+                <p className="search-count">
+                    {filteredData.length} of {data.length} screenshots found.
+                </p>
+        </div>
       <div className="gallery-grid">
-        {data.map((shot, index) => (
-          <div key={shot._id} className="gallery-item" onClick={() => handleSelect(shot, index)}>
-            <img src={shot.imageURL} alt={shot.title} />
-            <p >⭐{shot.rating}, {shot.title}</p>
-          </div>
-        ))}
-      </div>
+               {filteredData.map((shot, index) => (
+                    <div key={shot._id} className={`gallery-item ${searchTerm ? 'highlight' : ''}`} onClick={() => handleSelect(shot, index)}>
+                        <img src={shot.imageURL} alt={shot.title} />
+                        <p>⭐{shot.rating} {shot.title}</p>
+                    </div>
+                ))}
+            </div>
 
       {selimage && (
         <Model 

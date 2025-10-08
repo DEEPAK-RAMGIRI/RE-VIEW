@@ -13,6 +13,43 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+/* --- Add these new styles to App.css --- */
+
+/* 7. Search Bar Styles */
+.search-container {
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: rgba(40, 40, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--glow-color-2);
+  box-shadow: 0 0 15px var(--glow-color-2);
+}
+
+.search-count {
+  margin-top: 0.5rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+
+.gallery-item.highlight {
+  box-shadow: 0 0 15px 3px var(--glow-color-2);
+  border-color: var(--glow-color-2);
+}
 
 .App {
   min-height: 100vh;
