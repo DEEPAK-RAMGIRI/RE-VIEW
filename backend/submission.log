@@ -90,4 +90,28 @@
   "rating": "9",
   "imageURL": "https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/Screenshot%202025-04-13%20110527.png",
   "category": "Anime"
+}{
+  "title": "Sakamoto Days",
+  "description": "",
+  "rating": 8,
+  "imageURL": "https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/Screenshot%202025-04-19%20131633.png",
+  "category": "Anime"
+}{
+  "title": "The Genius Prince's Guide to Raising a Nation Out of Debt",
+  "description": "This episode is good i liked the girl bcoz she is strong",
+  "rating": 8,
+  "imageURL": "https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/Screenshot%202025-04-25%20114649.png",
+  "category": "Anime"
+}{
+  "title": "Ranking of Kings",
+  "description": "",
+  "rating": "10",
+  "imageURL": "https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/Screenshot%202025-04-27%20220317.png",
+  "category": "Anime"
+}{
+  "title": "Orb: On the Movements of the Earth",
+  "description": "Nice season with the history episodes i liked it ",
+  "rating": 8,
+  "imageURL": "https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/Screenshot%202025-05-03%20171744.png",
+  "category": "Anime"
 }
