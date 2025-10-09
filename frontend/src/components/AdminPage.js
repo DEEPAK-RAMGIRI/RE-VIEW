@@ -57,6 +57,9 @@ export default function AdminPage() {
               <option value="Anime">Anime</option>
               <option value="Movie">Movie</option>
               <option value="Series">Series</option>
+              <option value="Manga">Manga</option>
+              <option value="Manhwa">Manhwa</option>
+              <option value="Dialogue">Dialogue</option>
             </select>
             <input type="password" placeholder="Your Secret Admin Key" value={key} onChange={e => setKey(e.target.value)} required />
             <button type="submit">Add to Collections</button>

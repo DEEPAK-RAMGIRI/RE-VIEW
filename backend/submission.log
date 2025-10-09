@@ -114,4 +114,16 @@
   "rating": 8,
   "imageURL": "https://raw.githubusercontent.com/DEEPAK-RAMGIRI/RE-VIEW/main/frontend/src/images/Screenshot%202025-05-03%20171744.png",
   "category": "Anime"
+}{
+  "title": "Dr. Stone",
+  "description": "That was an epic season — I’m really curious to see what happens next!",
+  "rating": "9",
+  "imageURL": "https://raw.githubusercontent.com/Blue4Red/screenshots1/main/Screenshot%202025-05-04%20174915.png",
+  "category": "Anime"
+}{
+  "title": "One Piece",
+  "description": "Nika",
+  "rating": "10",
+  "imageURL": "https://raw.githubusercontent.com/Blue4Red/screenshots1/main/Screenshot%202025-05-19%20204031.png",
+  "category": "Anime"
 }
