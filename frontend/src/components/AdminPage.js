@@ -27,6 +27,7 @@ export default function AdminPage() {
             const response = await postData(forms,key);
             setData([response.data, ...data]);
             setForm({title:'', description :'',rating:8,imageURL:'',category:'Anime'});
+            console.log(response.data);
         }catch(err){
             setMess(err.response?.data?.message);
         }

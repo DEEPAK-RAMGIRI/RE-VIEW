@@ -2,6 +2,9 @@ const express = require('express');
 const router  = express.Router();
 const Screenshot = require('../models/Screenshot');
 
+const fs = require('fs');
+const path = require('path');
+
 router.get('/',async(req,res) => {
     try{
         const data = await Screenshot.find().sort({createdAt: -1});
@@ -16,6 +19,20 @@ router.post('/', async(req,res) => {
     const adminPass = req.headers['x-admin-key'];
     if (adminPass !== process.env.SECRET_ADMIN_KEY){
         return res.status(401).json({message : 'Unauthorized: Invalid Key'});
+    }
+
+    try {
+        const logData = JSON.stringify(req.body, null, 2);
+        const logEntry = logData;
+        const logFilePath = path.join(__dirname, '..', 'submission.log');
+
+        fs.appendFile(logFilePath, logEntry, (err) => {
+            if (err) {
+                console.error("Failed to write to log file:", err);
+            }
+        });
+    } catch (logErr) {
+        console.error("Error creating log entry:", logErr);
     }
 
     const {title, description, rating, imageURL, category} = req.body;

@@ -24,8 +24,9 @@ export default function Gallery() {
         const titleMatch = shot.title.toLowerCase().includes(searchTerm.toLowerCase());
         const descriptionMatch = shot.description.toLowerCase().includes(searchTerm.toLowerCase());
         const ratingMatch = String(shot.rating) === searchTerm.trim();
+        const categoryMatch = shot.category.toLowerCase().includes(searchTerm.toLowerCase());
 
-        return titleMatch || descriptionMatch || ratingMatch;
+        return titleMatch|| ratingMatch || descriptionMatch || categoryMatch ;
     });
         setFilteredData(results);
     }, [searchTerm, data]);
@@ -42,14 +43,14 @@ export default function Gallery() {
     const showNext = (e) => {
       e.stopPropagation();
       const nextIndex = (currIndex + 1)% data.length;
-      setImage(data[nextIndex]);
+      setImage(filteredData[nextIndex]);
       setCurrIndex(nextIndex);
     };
 
     const showPrev = (e) => {
       e.stopPropagation();
       const prevIndex = (currIndex - 1 + data.length)% data.length;
-      setImage(data[prevIndex]);
+      setImage(filteredData[prevIndex]);
       setCurrIndex(prevIndex);
     };
 

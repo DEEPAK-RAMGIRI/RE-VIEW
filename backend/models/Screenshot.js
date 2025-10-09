@@ -9,3 +9,4 @@ const ScreenshotSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Screenshot',ScreenshotSchema);
+
