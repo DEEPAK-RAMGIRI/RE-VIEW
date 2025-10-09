@@ -33,7 +33,6 @@ function AppContent() {
       </Routes>
     </div>
     </div>
-
   );
 }
 
