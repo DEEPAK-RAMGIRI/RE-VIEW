@@ -10,7 +10,7 @@ function AppContent() {
   const isAdminPage = location.pathname === '/admin';
 
   return (
-    <div className={isAdminPage ? "App app-admin" : "App app-gallery"}>
+    <div className="cool-container">    <div className={isAdminPage ? "App app-admin" : "App app-gallery"}>
       <nav style={{ padding: '1rem', background: 'rgba(30, 30, 30, 0.7)', textAlign: 'center', margin: '1rem', borderRadius: '8px' }}>
         <Link to="/" style={{ color: 'white', margin: '0 1rem', textDecoration: 'none', fontSize: '1.2rem' }}>
           Home
@@ -32,6 +32,8 @@ function AppContent() {
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </div>
+    </div>
+
   );
 }
 
